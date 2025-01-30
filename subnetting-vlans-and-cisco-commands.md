@@ -71,6 +71,21 @@
 
 ### Configurations
 
+```
+# Configuring interfaces
+Router> enable
+Router# config t
+Router(config)# do show interface
+Router(config)# interface [interface name]
+Router(config-if)# ip address [IP address] [subnet mask]
+Router(config-if)# exit
+Router(config)# copy run start
+# Configuring VLANs
+Router(config)# vlan [vlan ID]
+Router(config-vlan)# name [name]
+Router(config-vlan)# end
+```
+
 #### FacStaff
 
 * default gateway 10.28.11.1, subnet mask 255.255.255.0, IP addresses 10.28.11.x+1
@@ -94,9 +109,31 @@
 * Fa0/1 and 0/2 are trunk ports
 * Gigabit Ethernet 0/1 are trunk ports
 
+```
+# Configuring trunk ports
+Router> enable
+Router# configure terminal
+Router(config)# interface [interface]
+Router(config-if)# switchport trunk encapsulation dot1q
+Router(config-if)# switchport mode trunk
+# Configuring routing
+Router(config)# ip routing
+Router(config)# interface vlan [vlan ID]
+Router(config-if)# ip address [default gateway IP] [subnet mask]
+```
+
 #### Edge Router Configuration
 
 * Fa0/1 on all are trunk ports
+
+```
+# Configuring access ports
+Router(config)# interface [interface]
+Router(config-if)# switchport access vlan [vlan ID]
+Router(config-if)# exit
+```
+
+
 
 ### Final Configuration
 
