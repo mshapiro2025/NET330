@@ -80,6 +80,9 @@ Router(config)# interface [interface name]
 Router(config-if)# ip address [IP address] [subnet mask]
 Router(config-if)# exit
 Router(config)# copy run start
+# Configuring interface ranges
+Router(config)# interface range (interface name) 0/[range x-y]
+Router(config-if)# switchport access vlan [vlan ID]
 # Configuring VLANs
 Router(config)# vlan [vlan ID]
 Router(config-vlan)# name [name]
