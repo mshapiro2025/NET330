@@ -69,3 +69,35 @@
 
 <table><thead><tr><th width="83">VLAN</th><th>VLAN Name</th><th>Hosts Needed</th><th>Network</th><th>Netmask</th><th>Router Address</th></tr></thead><tbody><tr><td>1</td><td>Management</td><td>250</td><td>10.28.10.0</td><td>255.255.255.0</td><td>10.28.10.1</td></tr><tr><td>100</td><td>FacStaff</td><td>200</td><td>10.28.11.0</td><td>255.255.255.0</td><td>10.28.11.1</td></tr><tr><td>110</td><td>Student1</td><td>450</td><td>10.28.8.0</td><td>255.255.254.0</td><td>10.28.8.1</td></tr><tr><td>130</td><td>StuLab1</td><td>35</td><td>10.28.12.0</td><td>255.255.255.192</td><td>10.28.12.1</td></tr><tr><td>140</td><td>StuLab2</td><td>35</td><td>10.28.12.64</td><td>255.255.255.192</td><td>10.28.12.65</td></tr><tr><td>200</td><td>StuWireless</td><td>900</td><td>10.28.0.0</td><td>255.255.252.0</td><td>10.28.0.1</td></tr><tr><td>210</td><td>FSWireless</td><td>650</td><td>10.28.4.0</td><td>255.255.252.0</td><td>10.28.4.1</td></tr></tbody></table>
 
+### Configurations
+
+#### FacStaff
+
+* default gateway 10.28.11.1, subnet mask 255.255.255.0, IP addresses 10.28.11.x+1
+
+#### Student
+
+* default gateway 10.28.8.1, subnet mask 255.255.254.0, IP addresses 10.28.8.x+1
+
+#### Lab1
+
+* default gateway 10.28.12.1, subnet mask 255.255.255.192, IP addresses 10.28.12.x+1
+
+#### Lab2
+
+* default gateway 10.28.12.65, subnet mask 255.255.255.192, IP addresses 10.28.12.x+65
+
+#### Core Switches
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* Fa0/1 and 0/2 are trunk ports
+* Gigabit Ethernet 0/1 are trunk ports
+
+#### Edge Router Configuration
+
+* Fa0/1 on all are trunk ports
+
+### Final Configuration
+
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
