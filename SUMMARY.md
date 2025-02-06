@@ -4,4 +4,5 @@
 * [IP Addressing](ip-addressing.md)
 * [Subnetting, VLANs, and Cisco Commands](subnetting-vlans-and-cisco-commands.md)
 * [DHCP](dhcp.md)
+* [Network Design Layers](network-design-layers.md)
 * [Quiz 1 Review](quiz-1-review.md)
