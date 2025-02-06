@@ -123,6 +123,7 @@ Router(config-if)# switchport mode trunk
 Router(config)# ip routing
 Router(config)# interface vlan [vlan ID]
 Router(config-if)# ip address [default gateway IP] [subnet mask]
+Router(config-if)# no shutdown
 ```
 
 #### Edge Router Configuration

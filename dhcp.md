@@ -69,3 +69,19 @@
 * cisco IOS uses the "ip helper-address"
 * can be assigned to a physical or VLAN interface
 * if configured, grabs DHCP broadcasts seen on that interface
+
+## Lab Notes: DHCP in Packet Tracer
+
+### DHCP Services Config
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+### DHCP Router Config
+
+```
+Router> enable
+Router# config t
+Router(config)# interface vlan [vlan ID]
+Router(config-if)# ip helper-address [DHCP server IP]
+# do for each VLAN
+```
