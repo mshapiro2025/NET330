@@ -2,6 +2,8 @@
 
 * possible security risks for DHCP
   * broadcast
+  * no authentication, so DHCP clients and servers can be spoofed for MITM attacks, DoS attacks, etc.
+  * rogue DHCP servers- improper configuration means potential network issues
 * name four layers of hierarchical internetworking model and provide example of a device that operates at that layer
   * Cisco hierarchical internetworking model
   * distribution (multilayer switch), core (high speed chassis-based switch), border (border router), access/edge (laptop, 48-port Ethernet switch)
