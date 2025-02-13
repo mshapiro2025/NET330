@@ -82,7 +82,7 @@ Router(config-if)# exit
 Router(config)# copy run start
 # Configuring interface ranges
 Router(config)# interface range (interface name) 0/[range x-y]
-Router(config-if)# switchport access vlan [vlan ID]
+Router(config-if-range)# switchport access vlan [vlan ID]
 # Configuring VLANs
 Router(config)# vlan [vlan ID]
 Router(config-vlan)# name [name]
@@ -112,19 +112,18 @@ Router(config-vlan)# end
 * Fa0/1 and 0/2 are trunk ports
 * Gigabit Ethernet 0/1 are trunk ports
 
-```
-# Configuring trunk ports
+<pre><code># Configuring trunk ports
 Router> enable
 Router# configure terminal
 Router(config)# interface [interface]
-Router(config-if)# switchport trunk encapsulation dot1q
-Router(config-if)# switchport mode trunk
+<strong>Router(config-if)# switchport trunk encapsulation dot1q
+</strong>Router(config-if)# switchport mode trunk
 # Configuring routing
 Router(config)# ip routing
 Router(config)# interface vlan [vlan ID]
 Router(config-if)# ip address [default gateway IP] [subnet mask]
 Router(config-if)# no shutdown
-```
+</code></pre>
 
 #### Edge Router Configuration
 

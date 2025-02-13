@@ -95,11 +95,43 @@ C:\> nslookup
 
 ## Lab Notes: Small Enterprise Network
 
-| Network Name   | VLAN ID | # of Hosts | Network Address | Subnet Mask   | Default Gateway | First Usable IP | DHCP Pool      |
-| -------------- | ------- | ---------- | --------------- | ------------- | --------------- | --------------- | -------------- |
-| Default Subnet | 1       | 150        | 10.12.6.0       | 255.255.255.0 | 10.12.6.1       | 10.12.6.2       | 10.12.6.50-200 |
-| Clinic         | 100     | 300        | 10.12.0.0       | 255.255.254.0 | 10.12.0.1       | 10.12.0.2       | 10.12.0.50-200 |
-| Visitor        | 110     | 300        | 10.12.2.0       | 255.255.254.0 | 10.12.2.1       | 10.12.2.2       | 10.12.2.50-200 |
-| Office         | 120     | 300        | 10.12.4.0       | 255.255.254.0 | 10.12.4.1       | 10.12.4.2       | 10.12.4.50-200 |
-| Counseling     | 130     | 150        | 10.12.7.0       | 255.255.255.0 | 10.12.7.1       | 10.12.7.2       | 10.12.7.50-200 |
+| Network Name   | VLAN ID | # of Hosts | Network Address | Subnet Mask   | Default Gateway | First Usable IP | DHCP Pool        |
+| -------------- | ------- | ---------- | --------------- | ------------- | --------------- | --------------- | ---------------- |
+| Default Subnet | 1       | 150        | 10.12.6.0       | 255.255.255.0 | 10.12.6.1       | 10.12.6.2       | 10.12.6.50 + 150 |
+| Clinic         | 100     | 300        | 10.12.0.0       | 255.255.254.0 | 10.12.0.1       | 10.12.0.2       | 10.12.0.50 + 300 |
+| Visitor        | 110     | 300        | 10.12.2.0       | 255.255.254.0 | 10.12.2.1       | 10.12.2.2       | 10.12.2.50 + 300 |
+| Office         | 120     | 300        | 10.12.4.0       | 255.255.254.0 | 10.12.4.1       | 10.12.4.2       | 10.12.4.50 + 300 |
+| Counseling     | 130     | 150        | 10.12.7.0       | 255.255.255.0 | 10.12.7.1       | 10.12.7.2       | 10.12.7.50 + 150 |
 
+### Hospital Router Configuration
+
+```
+Switch> enable
+Switch# config t
+Switch(config)# ip routing
+Switch(config)# vlan [vlan ID]
+Switch(config-vlan)# name [vlan name]
+Switch(config-vlan)# interface vlan 1
+Switch(config-if)# no shutdown
+Switch(config-if)# ip address [default gateway IP] [subnet mask]
+# repeat for each VLAN
+Switch(config)# interface [interfaces connected to switches]
+Switch(config-if)# switchport trunk encapsulation dot1q
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# interface vlan [vlan ID]
+Switch(config-if)# ip helper-address [DHCP server IP]
+```
+
+### Switch Configuration
+
+```
+Switch> enable
+Switch# config t
+Switch(config)# vlan [vlan ID]
+Switch(config-vlan)# name [vlan name]
+Switch(config)# interface [interface connected to router]
+Switch(config-if)# switchport trunk encapsulation dot1q
+Switch(config-if)# switchport mode trunk
+Router(config)# interface range (interface name) 0/[range x-y]
+Router(config-if-range)# switchport access vlan [vlan ID]
+```
