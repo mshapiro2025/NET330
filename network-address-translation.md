@@ -106,3 +106,19 @@ Router(config)# ip nat inside source static [inside interface IP]
 #### Configuring Router 1
 
 <figure><img src=".gitbook/assets/{28849D99-BDE9-4C31-9645-E6531B29DBE2}.png" alt=""><figcaption></figcaption></figure>
+
+### PAT
+
+#### Router 1 Configuration
+
+<figure><img src=".gitbook/assets/{0F181688-A3F9-47E3-A7F8-2539D31725B0}.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/{3136A20C-C27D-49D5-96DF-899EA14E5608}.png" alt=""><figcaption></figcaption></figure>
+
+#### Router 2 Configuration
+
+<figure><img src=".gitbook/assets/{1B954E31-A9E5-4D15-88DE-E16DCEB4A917}.png" alt=""><figcaption></figcaption></figure>
+
+#### IP Nat Table on R1
+
+<figure><img src=".gitbook/assets/{63F65853-EA2D-42BD-B367-8C0E366A769E}.png" alt=""><figcaption></figcaption></figure>
