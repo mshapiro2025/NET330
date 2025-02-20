@@ -80,3 +80,29 @@
 * another way to write a subnet mask
 * flips the ones and zeros
 * ex. 255.255.255.0 becomes 0.0.0.255
+
+## Lab Notes: NAT Configuration
+
+### Static NAT
+
+```
+Router> enable
+Router# config t
+Router(config)# hostname [hostname]
+Router(config)# interface [interface name]
+Router(config-if)# ip nat inside
+Router (config-if)# interface [interface name]
+Router(config-if)# ip nat outside
+Router(config-if)# exit
+Router(config)# ip nat inside source static [inside interface IP]
+```
+
+#### Configuring Router 0
+
+<figure><img src=".gitbook/assets/{1C375419-1025-48B3-A457-08EECDF2CFD8}.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/{875B53D3-7D9F-43B6-A3B4-E0A02B2854C1}.png" alt=""><figcaption></figcaption></figure>
+
+#### Configuring Router 1
+
+<figure><img src=".gitbook/assets/{28849D99-BDE9-4C31-9645-E6531B29DBE2}.png" alt=""><figcaption></figcaption></figure>
