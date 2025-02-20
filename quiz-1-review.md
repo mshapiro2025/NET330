@@ -42,7 +42,7 @@
 * if you have multiple routed subnets on a network but only one DHCP server, a \_ must be configured on the routers
   * relay
 * by default, DHCP renewal happens at what percent of the lease time
-  * 87.5
+  * 50
 * port address translation is a **many-to-one** translation between IP ranges
 * which of the following should be included in a DHCP server's IP pool configuration for a standard client network with expectation of internet access?
   * operation code

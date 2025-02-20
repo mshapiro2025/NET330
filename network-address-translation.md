@@ -122,3 +122,26 @@ Router(config)# ip nat inside source static [inside interface IP]
 #### IP Nat Table on R1
 
 <figure><img src=".gitbook/assets/{63F65853-EA2D-42BD-B367-8C0E366A769E}.png" alt=""><figcaption></figcaption></figure>
+
+### Champlain Example Lab
+
+* Foster PCs are 192.168.3.100-101
+* Ireland servers are 192.168.7.100-101
+* Skiff PCs are 192.168.1.100-101
+* BT server is 192.168.18.100
+
+#### CC Border Router (PAT)
+
+```
+enable
+config t
+ip route 0.0.0.0 0.0.0.0 [public default gateway address- ex. BT router, 219.93.144.2]
+interface fastethernet 0/0
+ip nat inside
+interface fastethernet 0/1
+ip nat outside
+access-list 1 permit 192.168.1.0 0.0.0.255
+access-list 1 permit 192.168.3.0 0.0.0.255
+ip nat pool test [public IP start range, ex. 219.93.144.100] [public IP end range, ex. 219.93.144.100] netmask [netmask, ex. 255.255.255.0]
+ip nat inside source list 1 pool test overload
+```
