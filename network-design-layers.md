@@ -35,3 +35,19 @@
   * layer 3 and up
 
 <figure><img src=".gitbook/assets/{6558C616-AA77-49CC-9E1D-06E0C40BFF20}.png" alt=""><figcaption></figcaption></figure>
+
+## Lab Notes: Multilayer Switches
+
+```
+# must drag and drop AC power supply into one of the blank spots in the switch
+Switch> enable
+Switch# config t
+Switch(config)# ip routing
+Switch(config)# hostname [hostname]
+Switch(config)#vlan 100
+Switch(config-vlan)#name [name]
+Switch(config-if)#interface vlan 100
+Switch(config-if)#ip address [vlan default gateway IP] [subnet mask]
+Switch(config-if)#interface vlan 100
+Switch(config-if)#ip helper-address [vlan default gateway IP]
+```
