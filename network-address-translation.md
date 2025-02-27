@@ -147,3 +147,9 @@ ip nat inside source list 1 pool test overload
 ```
 
 <figure><img src=".gitbook/assets/{F1DE2631-1B39-4FC8-A9EB-FA517EBF2A33}.png" alt=""><figcaption><p>BT Router</p></figcaption></figure>
+
+#### CC Border Router (NAT)
+
+```
+ip nat inside source static [server IP, ex. 192.168.7.101] [NAT IP 219.93.144.101]
+```
