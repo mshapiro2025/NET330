@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Quiz 1 Review
 
 * possible security risks for DHCP
