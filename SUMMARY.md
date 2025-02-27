@@ -7,4 +7,3 @@
 * [Network Design Layers](network-design-layers.md)
 * [DNS](dns.md)
 * [Network Address Translation](network-address-translation.md)
-* [Quiz 1 Review](quiz-1-review.md)
