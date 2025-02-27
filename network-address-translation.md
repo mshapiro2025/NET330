@@ -145,3 +145,5 @@ access-list 1 permit 192.168.3.0 0.0.0.255
 ip nat pool test [public IP start range, ex. 219.93.144.100] [public IP end range, ex. 219.93.144.100] netmask [netmask, ex. 255.255.255.0]
 ip nat inside source list 1 pool test overload
 ```
+
+<figure><img src=".gitbook/assets/{F1DE2631-1B39-4FC8-A9EB-FA517EBF2A33}.png" alt=""><figcaption><p>BT Router</p></figcaption></figure>
