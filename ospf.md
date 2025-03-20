@@ -48,3 +48,22 @@
 * RIB (routing table)
   * contains a list of all the destinations and the various next hops used to get to those destinations, along with other information
   * one destination can have lots of possible next-hops- only the best next-hop goes into the FIB
+
+## Lab Notes: OSPF in Packet Tracer
+
+### Router Configuration
+
+```
+# configure interfaces
+Router> enable
+Router# config t
+Router (config)# interface [interface name]
+Router (config-if)# ip address [IP address] [subnet mask]
+Router (config-if)# exit
+# declare OSPF instance
+Router (config)# router ospf [instance ID, can just use 1]
+# advertise on area 0 to network (directly connected networks)
+Router (config-router)# network [network address] [subnet mask] area 0
+# repeat for each network that the router is connected to
+# can delete networks by putting "no" in front of the command
+```
