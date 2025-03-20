@@ -7,3 +7,5 @@
 * [Network Design Layers](network-design-layers.md)
 * [DNS](dns.md)
 * [Network Address Translation](network-address-translation.md)
+* [OSPF](ospf.md)
+* [WAN Routing and BGP](wan-routing-and-bgp.md)
