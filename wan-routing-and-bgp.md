@@ -152,3 +152,18 @@ neighbor [IP of peer] remote-as [peer AS]
 network [connected network] mask 255.255.255.0
 ```
 
+
+
+## Lab Notes: 9.1
+
+### BTV Dist Multilayer Switch
+
+```
+interface vlan 5
+ip address 172.16.5.1 255.255.255.0
+ip helper-address 172.16.5.1
+interface vlan 6
+ip address 172.16.6.1 255.255.255.0
+ip helper-address 172.16.6.1
+```
+
