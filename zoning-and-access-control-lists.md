@@ -73,6 +73,7 @@
     * operational criticality
     * data they store/process
     * regulatory requirements
+* asset-based as opposed to perimeter approach to network traffic flow policy
 
 ### Network Zoning Goals
 
