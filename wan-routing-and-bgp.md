@@ -100,3 +100,55 @@
 * configuring redistribution of OSPS on border router
 * to advertise networks shared through OSPF, the following command must be included in BGP config:
   * "redistribute ospf \[instance number]"
+
+## Lab Notes: 9.1
+
+### Multilayer Switch
+
+```
+enable
+config t
+interface vlan 5
+ip address 172.16.5.1 255.255.255.0
+ip helper-address 172.16.5.1
+interface vlan 6
+ip address 172.16.6.1 255.255.255.0
+ip helper-address 172.16.6.1
+exit
+ip routing
+# configure correct VLANs on interfaces in GUI
+router ospf 1
+network 172.16.10.0 255.255.255.0 area 0
+network 172.16.5.0 255.255.255.0 area 0
+network 172.16.6.0 255.255.255.0 area 0
+```
+
+### BTV Router
+
+```
+enable
+config t
+interface Serial0/1/0
+no shutdown
+ip address 172.16.0.1 255.255.255.252
+interface FastEthernet0/0
+no shutdown
+ip address 172.16.10.1 255.255.255.0
+exit
+router ospf 1
+network 172.16.10.0 255.255.255.0 area 0
+network 172.16.0.0 255.255.255.252 area 0
+default-information originate
+exit
+router bgp 
+redistribute ospf 1
+```
+
+### Configuring BGP
+
+```
+router bgp [AS]
+neighbor [IP of peer] remote-as [peer AS]
+network [connected network] mask 255.255.255.0
+```
+
