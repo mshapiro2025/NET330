@@ -139,3 +139,36 @@
   * deny all is applied by default
     * must add permit any at the end of list if appropriate
   * regular ACLs cannot be reordered- must delete and recreate if the order is messed up
+
+## Lab Notes: Configuring Access Lists
+
+### Router
+
+```
+enable
+config t
+# configure standard ACL inbound
+ip access-list standard STND-1
+deny [address] [wildcard mask. ex. 0.0.0.255]
+permit 0.0.0.0 255.255.255.255
+exit
+interface [interface name]
+ip access-group STND-1 in
+# configure extended ACL outbound
+ip access-list extended EXTEND-1
+deny ip [IP address] [wildcard mask] [IP address] [wildcard mask]
+exit
+interface [interface name]
+ip access-group EXTEND-1 out
+# configuring only specific protocol access
+ip access-list extended EXTEND-2
+permit tcp any host [mail server IP] eq [protocol, ex. smtp]
+permit tcp any any established
+exit
+int [interface name]
+ip access-group EXTEND-2 in
+```
+
+{% embed url="https://www.cbtnuggets.com/blog/certifications/cisco/networking-basics-how-to-configure-standard-acls-on-cisco-routers" %}
+
+{% embed url="https://www.cbtnuggets.com/blog/certifications/cisco/networking-basics-configuring-extended-access-lists-on-cisco-routers" %}
