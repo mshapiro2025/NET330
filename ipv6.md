@@ -101,3 +101,34 @@
 * but MAC addresses are only 48 bits
   * add FFFE between the OUI and the unique identifier to create a 64-bit host ID
   * the seventh bit in the OUI becomes 1
+
+## Lab Notes
+
+```
+# IPv6 config
+enable
+config t
+ipv6 general-prefix [prefix name] [IPv6 prefix as x:x:x:x::/64]
+int [interface name]
+ipv6 address [IPv6 address with CIDR]
+no shutdown
+exit
+ipv6 unicast-routing
+# EUI IPv6 config
+enable
+config t
+ipv6 unicast-routing
+int [interface name]
+ipv6 address [IPv6 address with CIDR] eui-64
+# IPv6 autoconfig
+enable
+config t
+int [interface name]
+ipv6 address autoconfig
+# config RIP
+enable
+config t
+int [interface name]
+ipv6 rip processx [x can be 1] enable
+# do for all interfaces
+```
