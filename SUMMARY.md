@@ -11,3 +11,4 @@
 * [WAN Routing and BGP](wan-routing-and-bgp.md)
 * [Zoning and Access Control Lists](zoning-and-access-control-lists.md)
 * [IPv6](ipv6.md)
+* [Load Balancing](load-balancing.md)
